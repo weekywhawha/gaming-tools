@@ -10,11 +10,10 @@ docs/_book
 documentation/_book
 **/node_modules/**
 
-charts/cluster/requirements\.lock
 .serverless
 **/coverage
 **/node_modules
 *.csv
 **/dist
+**/build
 *.tsbuildinfo
-deprecated/
