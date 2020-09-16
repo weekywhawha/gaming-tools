@@ -1,6 +1,6 @@
 import Discord from 'discord.js'
 import path from 'path'
-import { dirs, toArray } from './file-system.js'
+import { dirs, toArray } from './file-system'
 const __dirname = path.resolve()
 
 const commands = new Discord.Collection()

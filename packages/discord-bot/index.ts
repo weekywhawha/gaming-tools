@@ -1,7 +1,7 @@
-import Discord from 'discord.js'
-import { getCommands } from './libs/utils/commands.js'
+import * as Discord from 'discord.js'
+import { getCommands } from './libs/utils/commands'
 
-const prefix = process.env.PREFIX
+const prefix = process.env.PREFIX || '!'
 const client = new Discord.Client()
 
 const init = async function () {
@@ -14,9 +14,11 @@ const init = async function () {
 
   client.on('message', (message) => {
     if (!message.content.startsWith(prefix) || message.author.bot) return
-    const args = message.content.slice(prefix.length).trim().split(/ +/)
+    const args: string[] = message.content.slice(prefix.length).trim().split(/ +/)
     console.log(args)
-    const commandName = args.shift().toLowerCase()
+
+
+    const commandName = args.shift()!.toLowerCase()
 
     const command =
       commands.get(commandName) || commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName))

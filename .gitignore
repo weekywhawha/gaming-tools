@@ -9,7 +9,7 @@
 /node_modules
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
@@ -24,6 +24,13 @@
 !.vscode/tasks.json
 k!.vscode/launch.json
 !.vscode/extensions.json
+
+# dotenv environment variables file
+.env
+.env.dev
+
+# Optional eslint cache
+.eslintcache
 
 # misc
 /.sass-cache
@@ -51,7 +58,6 @@ _book
 /documentation/_book
 *.rej
 
-charts/cluster/requirements\.lock
 .serverless*
 **/coverage
 **/node_modules
