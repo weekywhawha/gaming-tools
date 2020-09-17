@@ -1,5 +1,5 @@
 {
-  "name": "discord-bot",
+  "name": "@gaming-tools/discord-bot",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",

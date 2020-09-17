@@ -1,6 +1,8 @@
 {
-  "name": "root",
+  "name": "@gaming-tools/root",
   "private": true,
+  "author": "Marc David @weekywhawha",
+  
   "devDependencies": {
     "lerna": "^3.22.1",
     "nodemon": "^2.0.4",
