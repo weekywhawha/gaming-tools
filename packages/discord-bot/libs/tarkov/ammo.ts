@@ -1,9 +1,9 @@
 import puppeteer from 'puppeteer'
-import { MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from 'discord.js'
 
 let latestUpdate: string
 
-export const tarkovAmmo = async function main(message) {
+export const tarkovAmmo = async function main(message: Message) {
   try {
     const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
     const [page] = await browser.pages()

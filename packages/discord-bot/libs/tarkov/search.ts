@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer'
-import { MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from 'discord.js'
 
-export const tarkovSearch = async function (message, args) {
+export const tarkovSearch = async function (message: Message, args: string) {
   try {
     const searchInput = args.slice(1).join(' ')
 
