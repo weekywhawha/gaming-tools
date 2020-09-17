@@ -1,11 +1,11 @@
-import weather from 'weather-js'
-import { MessageEmbed } from 'discord.js'
+import * as weather from 'weather-js'
+import { MessageEmbed, Message } from 'discord.js'
 
 export default {
   name: 'weather',
   description: 'Checks weather forecast for a specific location.',
   usage: '[location]',
-  execute(message, args) {
+  execute(message: Message, args: any[]) {
     weather.find({ search: args.join(''), degreeType: 'C' }, (error, result) => {
       if (error) {
         return message.reply('Please specify a location.')

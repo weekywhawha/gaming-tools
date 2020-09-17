@@ -1,14 +1,14 @@
 import axios from 'axios'
-import { MessageEmbed } from 'discord.js'
+import { MessageEmbed, Message } from 'discord.js'
 
 const token = process.env.TWITCH_TOKEN
 const clientId = process.env.TWITCH_ID
 
-export default {
+export const twitch = {
   name: 'twitch',
   description: 'Get a link for the channel requested.',
   usage: '[argument]',
-  async execute(message, args) {
+  async execute(message: Message, args: string) {
     if (!args[0]) {
       return message.reply("you didn't provide a username to search for.")
     }

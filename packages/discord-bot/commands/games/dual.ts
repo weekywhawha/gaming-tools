@@ -1,15 +1,17 @@
 import pkg from 'googleapis'
-import { MessageEmbed } from 'discord.js'
+import { MessageEmbed, Message } from 'discord.js'
+import { Command } from 'discord-bot/types/command'
+
 const { google } = pkg
 
 const APIKey = process.env.GOOGLE_API_KEY
 const sheets = google.sheets({ version: 'v4', auth: APIKey })
 
-export default {
+export const dual: Command = {
   name: 'dual',
   description: 'Information about Dual Universe ores, please input at least 4 characters for the search.',
   usage: '[argument]',
-  async execute(message, args) {
+  async execute(message: Message, args: string) {
     const searchInput = args[0].toLowerCase()
 
     if (!searchInput || searchInput.length < 4) {
@@ -22,25 +24,27 @@ export default {
       majorDimension: 'COLUMNS',
     }
 
-    const sheet = await sheets.spreadsheets.values.get(request)
+    const { data } = await sheets.spreadsheets.values.get(request)
 
-    const findElement = sheet.data.values.find((element) =>
-      element.toString().toLocaleLowerCase().includes(searchInput)
-    )
+    if (!data.values) {
+      return message.reply('your search did not match any item.')
+    }
+
+    const findElement = data.values?.find((element) => element.toString().toLocaleLowerCase().includes(searchInput))
 
     if (!findElement) {
       return message.reply('your search did not match any item.')
     }
 
-    const oreName = findElement[0]
-    const oreValues = findElement.slice(7)
-    const planets = sheet.data.values[0].slice(7)
+    const oreName: string[] = findElement[0]
+    const oreValues: number[] = findElement.slice(7)
+    const planets: string[] = data.values[0].slice(7)
 
     const oreInfo = new MessageEmbed()
       .setTitle(`${oreName}`)
       .addField(
         'Planets',
-        planets.map((str) => str.substring()),
+        planets.map((str) => str.substring(0)),
         true
       )
       .addField('\u200b', '\u200b', true)

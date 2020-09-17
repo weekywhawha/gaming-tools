@@ -1,7 +1,7 @@
-import { writeFile } from 'fs'
 import puppeteer from 'puppeteer'
 import { MessageEmbed } from 'discord.js'
-import { jsonReader } from '../utils/json-reader.js'
+
+let latestUpdate: string
 
 export const tarkovAmmo = async function main(message) {
   try {
@@ -30,24 +30,11 @@ export const tarkovAmmo = async function main(message) {
         .toString()
     )
 
-    jsonReader('./data/data.json', async (err, data) => {
-      if (err) {
-        console.log('File read failed:', err)
-        return
-      }
-      if (data.tarkov.ammo.date !== newDate) {
-        data.tarkov.ammo.date = newDate
-        await element.screenshot({ path: './data/img/image.png' })
-        await browser.close()
-        writeFile('./data/data.json', JSON.stringify(data, null, 2).concat('\n'), (err) => {
-          if (err) {
-            console.log('Error writing file:', err)
-            return
-          }
-          return
-        })
-      }
-    })
+    if (latestUpdate !== newDate) {
+      latestUpdate = newDate
+      await element.screenshot({ path: './data/img/image.png' })
+    }
+    await browser.close()
 
     const ammoInfo = new MessageEmbed()
       .setDescription(`${newDate}`)

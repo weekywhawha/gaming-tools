@@ -1,4 +1,4 @@
-import { getCommands } from '../../libs/utils/commands.js'
+import { commands } from '../../commands'
 
 const prefix = process.env.PREFIX
 export default {
@@ -7,13 +7,12 @@ export default {
   aliases: ['commands'],
   usage: '[command name]',
   cooldown: 5,
-  execute: async (message, args) => {
+  async execute (message, args) {
     const data = []
-    const commands = await getCommands()
 
     if (!args.length) {
       data.push("Here's a list of all my commands:")
-      data.push(commands.map((command) => command.name).join(' | '))
+      data.push(Object.entries(commands).join(' | '))
       data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`)
 
       return message.author
@@ -29,7 +28,7 @@ export default {
     }
 
     const name = args[0].toLowerCase()
-    const command = commands.get(name) || commands.find((c) => c.aliases && c.aliases.includes(name))
+    const command = commands[name]
 
     if (!command) {
       return message.reply("that's not a valid command!")

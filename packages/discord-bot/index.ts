@@ -1,11 +1,10 @@
 import * as Discord from 'discord.js'
-import { getCommands } from './libs/utils/commands'
+import { commands } from './commands'
 
 const prefix = process.env.PREFIX || '!'
 const client = new Discord.Client()
 
 const init = async function () {
-  const commands = await getCommands()
   const cooldowns = new Discord.Collection()
 
   client.once('ready', () => {
@@ -17,11 +16,9 @@ const init = async function () {
     const args: string[] = message.content.slice(prefix.length).trim().split(/ +/)
     console.log(args)
 
-
     const commandName = args.shift()!.toLowerCase()
 
-    const command =
-      commands.get(commandName) || commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName))
+    const command = commands[commandName]
 
     if (!command) {
       return

@@ -1,22 +1,26 @@
-import { tarkovMarket } from '../../libs/tarkov/market'
-import { tarkovBarter } from '../../libs/tarkov/barter'
-import { tarkovKeys } from '../../libs/tarkov/keys'
-import { tarkovAmmo } from '../../libs/tarkov/ammo'
-import { tarkovCustoms } from '../../libs/tarkov/customs'
-import { tarkovFactory } from '../../libs/tarkov/factory'
-import { tarkovInterchange } from '../../libs/tarkov/interchange'
-import { tarkovLabs } from '../../libs/tarkov/labs'
-import { tarkovReserve } from '../../libs/tarkov/reserve'
-import { tarkovShoreline } from '../../libs/tarkov/shoreline'
-import { tarkovWoods } from '../../libs/tarkov/woods'
-import { tarkovSearch } from '../../libs/tarkov/search'
+import {
+  tarkovMarket,
+  tarkovBarter,
+  tarkovKeys,
+  tarkovAmmo,
+  tarkovSearch,
+  tarkovCustoms,
+  tarkovFactory,
+  tarkovInterchange,
+  tarkovLabs,
+  tarkovReserve,
+  tarkovShoreline,
+  tarkovWoods,
+} from 'discord-bot/libs/tarkov'
+import { Command } from 'discord-bot/types/command'
+import { Message } from 'discord.js'
 
-export default {
+export const tarkov: Command = {
   name: 'tarkov',
   description:
     'Escape from Tarkov information using these specific arguments:\nmarket | barter | keys | ammo | search | customs | factory | interchange | labs | reserve | shoreline | woods.',
   usage: '[argument] [argument(search command)]',
-  execute(message, args) {
+  execute(message: Message, args: string) {
     if (!args[0]) {
       return message.reply('Please specify an argument')
     }
