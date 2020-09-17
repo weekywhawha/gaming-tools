@@ -1,0 +1,16 @@
+{
+    "linterOptions": {
+      "exclude": ["**/node_modules/**", "**/deprecated/**"]
+    },
+    "rulesDirectory": ["tslint-plugin-prettier"],
+    "extends": ["tslint:recommended", "tslint-eslint-rules", "tslint-config-prettier"],
+    "rules": {
+      "prettier": true,
+      "no-console": [true, "debug", "log", "time", "timeEnd", "trace"],
+      "member-access": [true, "no-public"],
+      "object-literal-sort-keys": false,
+      "no-shadowed-variable": false,
+      "no-non-null-assertion": true,
+      "triple-equals": [true, "allow-null-check"]
+    }
+  }
