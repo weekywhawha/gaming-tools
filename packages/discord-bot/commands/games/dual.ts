@@ -1,5 +1,5 @@
 import pkg from 'googleapis'
-import { MessageEmbed, Message } from 'discord.js'
+import { MessageEmbed } from 'discord.js'
 import { Command } from 'discord-bot/types/command'
 
 const { google } = pkg
@@ -11,7 +11,7 @@ export const dual: Command = {
   name: 'dual',
   description: 'Information about Dual Universe ores, please input at least 4 characters for the search.',
   usage: '[argument]',
-  async execute(message: Message, args: string) {
+  async execute(message, args) {
     const searchInput = args[0].toLowerCase()
 
     if (!searchInput || searchInput.length < 4) {

@@ -4,7 +4,8 @@ export interface Command {
     name: string
     description: string
     usage: string
-    alias?: string
+    aliases?: string[]
+    guildOnly?: string
     cooldown?: number
-    execute(message: Message, args: string): any | Promise<any>
+    execute(message: Message, args: string | string[]): any | Promise<any>
 }

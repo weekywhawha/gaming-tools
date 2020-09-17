@@ -13,14 +13,13 @@ import {
   tarkovWoods,
 } from 'discord-bot/libs/tarkov'
 import { Command } from 'discord-bot/types/command'
-import { Message } from 'discord.js'
 
 export const tarkov: Command = {
   name: 'tarkov',
   description:
     'Escape from Tarkov information using these specific arguments:\nmarket | barter | keys | ammo | search | customs | factory | interchange | labs | reserve | shoreline | woods.',
   usage: '[argument] [argument(search command)]',
-  execute(message: Message, args: string) {
+  execute(message, args) {
     if (!args[0]) {
       return message.reply('Please specify an argument')
     }

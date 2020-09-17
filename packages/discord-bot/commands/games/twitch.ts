@@ -1,14 +1,15 @@
 import axios from 'axios'
-import { MessageEmbed, Message } from 'discord.js'
+import { Command } from 'discord-bot/types/command'
+import { MessageEmbed } from 'discord.js'
 
 const token = process.env.TWITCH_TOKEN
 const clientId = process.env.TWITCH_ID
 
-export const twitch = {
+export const twitch: Command = {
   name: 'twitch',
   description: 'Get a link for the channel requested.',
   usage: '[argument]',
-  async execute(message: Message, args: string) {
+  async execute(message, args) {
     if (!args[0]) {
       return message.reply("you didn't provide a username to search for.")
     }
@@ -66,7 +67,7 @@ export const twitch = {
     })
 
     if (!game.data.data.length) {
-      return console.log('game data is unreachable')
+      return console.log('game data is unreachable.')
     }
 
     const artwork = game.data.data[0].box_art_url.replace(`{width}`, '285').replace(`{height}`, '380')

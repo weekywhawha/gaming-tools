@@ -1,8 +1,12 @@
-export default {
+import { Command } from 'discord-bot/types/command'
+import { Message } from 'discord.js'
+
+export const ping: Command = {
   name: 'ping',
-  cooldown: 5,
   description: 'Ping!',
-  async execute(message) {
-    message.channel.send('Pong.')
+  usage: 'returns Pong',
+  cooldown: 5,
+  async execute(message: Message) {
+    message.channel.send('Pong!')
   },
 }

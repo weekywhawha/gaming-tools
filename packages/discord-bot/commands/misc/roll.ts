@@ -1,12 +1,13 @@
+import { Command } from 'discord-bot/types/command'
 import { DiceRoller } from 'rpg-dice-roller'
 const dice = new DiceRoller()
 
-export default {
+export const roll: Command = {
   name: 'roll',
   description:
     'Executes a command given in dice notation, and returns the results.\nSee https://greenimp.github.io/rpg-dice-roller/guide/notation/ for more information about dice notation.',
   usage: '[dice-notation] / [comment(optional)]',
-  execute(message, args) {
+  execute(message, args: string[]) {
     if (!args[0]) {
       return message.reply('Please specify a dice type e.g., "1d6", "2d5+1d7", etc.')
     }
@@ -15,6 +16,10 @@ export default {
       dice.roll(args[0])
 
       const result = dice.log.shift()
+
+      if (!result) {
+        return message.reply('error while getting dice results')
+      }
 
       if (args[1] === '/') {
         const comment = args.splice(2).join(' ')

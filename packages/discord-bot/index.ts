@@ -21,7 +21,7 @@ const init = async function () {
     const command = commands[commandName]
 
     if (!command) {
-      return
+      return message.reply("I can't execute that command.")
     }
 
     if (command.guildOnly && message.channel.type === 'dm') {

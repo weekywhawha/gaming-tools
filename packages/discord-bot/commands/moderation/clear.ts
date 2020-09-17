@@ -1,4 +1,6 @@
-export default {
+import { Command } from 'discord-bot/types/command'
+
+export const clear: Command = {
   name: 'clear',
   description: 'Delete up to 99 messages.',
   usage: '[number]',
@@ -7,7 +9,6 @@ export default {
     const amount = parseInt(message.content.split(' ')[1])
       ? parseInt(message.content.split(' ')[1])
       : parseInt(message.content.split(' ')[2])
-
     if (!amount) {
       return message.reply('Must specify an amount to delete!')
     }
@@ -19,20 +20,23 @@ export default {
     if (amount < 1 || amount >= 100) {
       return message.reply('you need to input a number between 1 and 99.')
     }
-
+    
     message.channel.messages
       .fetch({
         limit: 100,
       })
       .then((messages) => {
+        if (message.channel.type == "dm"){
+          return message.reply('I cannot bulk delete private messages.')
+        }
         if (user) {
-          const filterBy = user ? user.id : user.id
+          const filterBy = user ? user.id
           messages = messages
             .filter((m) => m.author.id === filterBy)
             .array()
             .slice(0, amount + 1)
-          message.channel.bulkDelete(messages).catch((error) => console.log(error.stack))
-        } else message.channel.bulkDelete(amount + 1).catch((error) => console.log(error.stack))
+          message.channel.bulkDelete(messages).catch((error: string) => console.log(error))
+        } else message.channel.bulkDelete(amount + 1).catch((error: string) => console.log(error)) // TODO weird else
       })
   },
 }

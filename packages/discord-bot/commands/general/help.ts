@@ -1,13 +1,14 @@
+import { Command } from 'discord-bot/types/command'
 import { commands } from '../../commands'
 
 const prefix = process.env.PREFIX
-export default {
+export const help: Command = {
   name: 'help',
   description: 'List all of my commands or info about a specific command.',
-  aliases: ['commands'],
   usage: '[command name]',
+  aliases: ['commands'],
   cooldown: 5,
-  async execute (message, args) {
+  async execute(message, args: string) {
     const data = []
 
     if (!args.length) {
@@ -23,7 +24,7 @@ export default {
         })
         .catch((error) => {
           console.error(`Could not send help DM to ${message.author.tag}.\n`, error)
-          message.reply("it seems like I can't DM you! Do you have DMs disabled?")
+          message.reply("it seems that I can't DM you! Do you have DMs disabled?")
         })
     }
 
