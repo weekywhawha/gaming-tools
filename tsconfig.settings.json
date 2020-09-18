@@ -11,7 +11,7 @@
       "@gaming-tools/*": ["./packages/*"],
       "types/*": ["./packages/*/types", "./packages/types"],
     },
-    "typeRoots": ["./node_modules/@types","./packages/*/type-definitions"],
+    "typeRoots": ["./node_modules/@types","./packages/type-definitions"],
 
     "composite": true,
     "declaration": true,
