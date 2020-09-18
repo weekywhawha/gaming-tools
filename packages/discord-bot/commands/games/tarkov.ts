@@ -15,6 +15,6 @@ export const tarkov: Command = {
       return message.reply('command not found.')
     }
 
-    return tarkovCommands[args[0]]
+    return tarkovCommands[args[0]].main(message, args)
   },
 }
