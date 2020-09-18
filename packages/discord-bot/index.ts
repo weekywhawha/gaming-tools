@@ -37,7 +37,7 @@ const init = async function () {
     }
 
     const now = Date.now()
-    const timestamps = cooldowns.get(command.name) as Discord.Collection<string, number> // TODO better way to do this?
+    const timestamps = cooldowns.get(command.name) as Discord.Collection<string, number>
     const cooldownAmount = (command.cooldown || 3) * 1000
 
     if (timestamps.has(message.author.id)) {

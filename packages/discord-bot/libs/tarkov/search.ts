@@ -45,7 +45,7 @@ export const search: TarkovCommand = {
         .setTitle(`**Search Results for** *"${searchInput}"* 📦`)
         .addField(
           '\u200b\nItems\n\u200b',
-          items.map((str) => (str as string).substring(0, 40)), // TODO ASK if this is the correct way
+          items.map((str) => (str as string).substring(0, 40)),
           true
         )
         .addField('Avg price (24h) \nPer slot\n\u200b', avgPrice, true)

@@ -8,7 +8,6 @@ export const weather: Command = {
   usage: '[location]',
   execute(message, args) {
     weatherJS.find({ search: (args as string[]).join(''), degreeType: 'C' }, (error: string, result: any) => {
-      // TODO correct this any
       if (error) {
         return message.reply('please specify a location.')
       }
