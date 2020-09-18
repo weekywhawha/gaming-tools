@@ -20,19 +20,26 @@ export const clear: Command = {
     if (amount < 1 || amount >= 100) {
       return message.reply('you need to input a number between 1 and 99.')
     }
-    
+
     message.channel.messages
       .fetch({
         limit: 100,
       })
       .then((messages) => {
-        if (message.channel.type == "dm"){
+        if (message.channel.type == 'dm') {
           return message.reply('I cannot bulk delete private messages.')
         }
+
         if (user) {
-          const retrievedMessages = messages.filter((m) => m.author.id === user.id).array().slice(0, amount + 1)
+          const retrievedMessages = messages
+            .filter((m) => m.author.id === user.id)
+            .array()
+            .slice(0, amount + 1)
+
           message.channel.bulkDelete(retrievedMessages).catch((error) => console.log(error))
-        } else message.channel.bulkDelete(amount + 1).catch((error) => console.log(error)) // TODO weird else
+        } else {
+          message.channel.bulkDelete(amount + 1).catch((error) => console.log(error))
+        }
       })
   },
 }
