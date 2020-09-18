@@ -1,8 +1,6 @@
-import pkg from 'googleapis'
+import { google } from 'googleapis'
 import { MessageEmbed } from 'discord.js'
-import { Command } from 'discord-bot/types/command'
-
-const { google } = pkg
+import { Command } from '../../types/command'
 
 const APIKey = process.env.GOOGLE_API_KEY
 const sheets = google.sheets({ version: 'v4', auth: APIKey })

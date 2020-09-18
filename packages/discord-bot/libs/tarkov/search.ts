@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from 'discord-bot/types/tarkov-commands'
+import { TarkovCommand } from '../../types/tarkov-commands'
 
-export const tarkovSearch: TarkovCommand = {
+export const search: TarkovCommand = {
   async main(message, args) {
     try {
       const searchInput = (args as string[]).slice(1).join(' ')

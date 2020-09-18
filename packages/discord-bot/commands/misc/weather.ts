@@ -1,13 +1,13 @@
-import * as weatherjs from 'weather-js'
-import { MessageEmbed, Message } from 'discord.js'
-import { Command } from 'discord-bot/types/command'
+import weatherJS from 'weather-js'
+import { MessageEmbed } from 'discord.js'
+import { Command } from '../../types/command'
 
 export const weather: Command = {
   name: 'weather',
   description: 'Checks weather forecast for a specific location.',
   usage: '[location]',
-  execute(message: Message, args: string[]) {
-    weatherjs.find({ search: args.join(''), degreeType: 'C' }, (error: string, result: any) => {
+  execute(message, args) {
+    weatherJS.find({ search: (args as string[]).join(''), degreeType: 'C' }, (error: string, result: any) => {
       // TODO correct this any
       if (error) {
         return message.reply('please specify a location.')

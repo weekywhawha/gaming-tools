@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Command } from 'discord-bot/types/command'
+import { Command } from '../../types/command'
 import { MessageEmbed } from 'discord.js'
 
 const token = process.env.TWITCH_TOKEN

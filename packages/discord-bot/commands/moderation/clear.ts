@@ -1,4 +1,4 @@
-import { Command } from 'discord-bot/types/command'
+import { Command } from '../../types/command'
 
 export const clear: Command = {
   name: 'clear',
@@ -30,13 +30,9 @@ export const clear: Command = {
           return message.reply('I cannot bulk delete private messages.')
         }
         if (user) {
-          const filterBy = user ? user.id
-          messages = messages
-            .filter((m) => m.author.id === filterBy)
-            .array()
-            .slice(0, amount + 1)
-          message.channel.bulkDelete(messages).catch((error: string) => console.log(error))
-        } else message.channel.bulkDelete(amount + 1).catch((error: string) => console.log(error)) // TODO weird else
+          const retrievedMessages = messages.filter((m) => m.author.id === user.id).array().slice(0, amount + 1)
+          message.channel.bulkDelete(retrievedMessages).catch((error) => console.log(error))
+        } else message.channel.bulkDelete(amount + 1).catch((error) => console.log(error)) // TODO weird else
       })
   },
 }

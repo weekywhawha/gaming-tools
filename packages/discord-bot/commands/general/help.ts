@@ -1,4 +1,4 @@
-import { Command } from 'discord-bot/types/command'
+import { Command } from '../../types/command'
 import { commands } from '../../commands'
 
 const prefix = process.env.PREFIX
@@ -8,7 +8,7 @@ export const help: Command = {
   usage: '[command name]',
   aliases: ['commands'],
   cooldown: 5,
-  async execute(message, args: string) {
+  async execute(message, args) {
     const data = []
 
     if (!args.length) {

@@ -5,7 +5,7 @@ const prefix = process.env.PREFIX || '!'
 const client = new Discord.Client()
 
 const init = async function () {
-  const cooldowns = new Discord.Collection()
+  const cooldowns = new Discord.Collection<string, Discord.Collection<string, number>>()
 
   client.once('ready', () => {
     console.log('Ready!')
@@ -37,11 +37,11 @@ const init = async function () {
     }
 
     const now = Date.now()
-    const timestamps = cooldowns.get(command.name)
+    const timestamps = cooldowns.get(command.name) as Discord.Collection<string, number> // TODO better way to do this?
     const cooldownAmount = (command.cooldown || 3) * 1000
 
     if (timestamps.has(message.author.id)) {
-      const expirationTime = timestamps.get(message.author.id) + cooldownAmount
+      const expirationTime = timestamps.get(message.author.id)! + cooldownAmount
 
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000

@@ -1,10 +1,10 @@
 import puppeteer from 'puppeteer'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from 'discord-bot/types/tarkov-commands'
+import { TarkovCommand } from '../../types/tarkov-commands'
 
 let latestUpdate: string
 
-export const tarkovAmmo: TarkovCommand = {
+export const ammo: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({ args: ['--no-sandbox'] })

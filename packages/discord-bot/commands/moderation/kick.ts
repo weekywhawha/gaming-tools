@@ -1,4 +1,4 @@
-import { Command } from 'discord-bot/types/command'
+import { Command } from '../../types/command'
 
 export const kick: Command = {
   name: 'kick',
@@ -6,11 +6,11 @@ export const kick: Command = {
   guildOnly: 'true',
   usage: '[member-tag] [reason(optional)]',
   async execute(message, args: string[]) {
-    if (!message.member!.roles.cache.some((r) => r.name === 'Admin')) {
+    if (!message.member?.roles.cache.some((r) => r.name === 'Admin')) {
       return message.reply('you do not have permission to use this command.')
     }
 
-    const member = message.mentions.members!.first() || message.guild!.members.cache.get(args[0]) // TODO ask if I can add those '!' in this case
+    const member = message.mentions.members?.first() || message.guild?.members.cache.get(args[0])
 
     if (!member) {
       return message.reply('please mention a valid member of this server.')

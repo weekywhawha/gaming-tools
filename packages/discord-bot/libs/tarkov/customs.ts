@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from 'discord-bot/types/tarkov-commands'
+import { TarkovCommand } from '../../types/tarkov-commands'
 
-export const tarkovCustoms: TarkovCommand = {
+export const customs: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
