@@ -1,4 +1,4 @@
-FROM node:current-alpine as builder
+FROM node:current-alpine
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" \
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
@@ -9,7 +9,8 @@ RUN set -x \
     && apk add --no-cache \
     udev \
     ttf-freefont \
-    chromium
+    chromium \
+    bash
 
 WORKDIR /src
 
@@ -19,16 +20,6 @@ RUN npm ci
 RUN ./node_modules/.bin/lerna bootstrap --no-progress --force-local --concurrency 2 --ci
 RUN npm run build:discord-bot
 
-FROM node:current-alpine
-
-ENV CHROME_BIN="/usr/bin/chromium-browser"
-
-RUN apk --update add bash
-
-WORKDIR /src
-
-COPY --from=builder src/packages/discord-bot .
-
 ENTRYPOINT ["node"]
 
-CMD ["dist/index.js"]
+CMD ["packages/discord-bot/dist/index.js"]
