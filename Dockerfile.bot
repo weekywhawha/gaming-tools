@@ -20,6 +20,8 @@ RUN npm ci
 RUN ./node_modules/.bin/lerna bootstrap --no-progress --force-local --concurrency 2 --ci
 RUN npm run build:discord-bot
 
+RUN cp -rf packages/discord-bot/data packages/discord-bot/dist
+
 ENTRYPOINT ["node"]
 
 CMD ["packages/discord-bot/dist/index.js"]
