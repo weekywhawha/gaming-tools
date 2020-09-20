@@ -2,4 +2,5 @@ build:
   docker:
     worker: Dockerfile.bot
 run:
-  worker: node packages/discord-bot/dist/index.js
+  # worker: node packages/discord-bot/dist/index.js
+  worker: node packages/discord-bot/test.js
