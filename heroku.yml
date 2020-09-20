@@ -1,5 +1,5 @@
 build:
   docker:
-      worker: packages/discord-bot/Dockerfile
+    worker: packages/discord-bot/Dockerfile
 run:
   worker: node index.js
