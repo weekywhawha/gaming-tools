@@ -45,13 +45,13 @@ export const ammo: TarkovCommand = {
         if (!element) {
           return message.reply('something went wrong while retrieving the ammo chart')
         }
-        await element.screenshot({ path: resolve(__dirname, 'data/img/image.png') })
+        await element.screenshot({ path: resolve(__dirname, '..', '..', 'data/img/image.png') })
       }
       await browser.close()
 
       const ammoInfo = new MessageEmbed()
         .setDescription(`${newDate}`)
-        .attachFiles([resolve(__dirname, 'data/img/image.png')])
+        .attachFiles([resolve(__dirname, '..', '..', 'data/img/image.png')])
         .setImage('attachment://image.png')
         .setFooter('source: tarkov-tools.com', 'https://tarkov-tools.com/favicon-32x32.png')
 
