@@ -1,14 +1,14 @@
-FROM node:lps-alpine as builder
+FROM node:lts-alpine as builder
 
 WORKDIR /src
 
-COPY . .
+COPY ../../ .
 
 RUN npm i
 RUN ./node_modules/.bin/lerna bootstrap --no-progress --force-local --concurrency 2
 RUN npm run build:discord-bot
 
-FROM node:lps-alpine
+FROM node:lts-alpine
 
 WORKDIR /src
 
