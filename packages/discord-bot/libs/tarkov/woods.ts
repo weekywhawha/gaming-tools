@@ -5,7 +5,11 @@ import { TarkovCommand } from '../../types/tarkov-commands'
 export const woods: TarkovCommand = {
   async main(message) {
     try {
-      const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+      const browser = await puppeteer.launch({
+        headless: true,
+        executablePath: process.env.CHROME_BIN,
+        args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
+      })
       const [page] = await browser.pages()
 
       await page.goto('https://escapefromtarkov.gamepedia.com/Woods')

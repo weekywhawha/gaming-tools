@@ -7,7 +7,11 @@ let latestUpdate: string
 export const ammo: TarkovCommand = {
   async main(message) {
     try {
-      const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+      const browser = await puppeteer.launch({
+        headless: true,
+        executablePath: process.env.CHROME_BIN,
+        args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
+      })
       const [page] = await browser.pages()
 
       await page.goto('https://tarkov-tools.com/ammo/')
@@ -37,7 +41,7 @@ export const ammo: TarkovCommand = {
 
       if (latestUpdate !== newDate) {
         latestUpdate = newDate
-        if(!element){
+        if (!element) {
           return message.reply('something went wrong while retrieving the ammo chart')
         }
         await element.screenshot({ path: './data/img/image.png' })
