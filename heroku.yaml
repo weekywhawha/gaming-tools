@@ -1,3 +1,8 @@
 build:
   docker:
       worker: packages/discord-bot/Dockerfile
+run:
+  worker: 
+    command:
+      - node index.js
+    image: worker
