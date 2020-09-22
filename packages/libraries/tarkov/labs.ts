@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer-core'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from '../../types/tarkov-commands'
+import { TarkovCommand } from '@gaming-tools/types/tarkov-commands'
 
-export const interchange: TarkovCommand = {
+export const labs: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({
@@ -12,7 +12,7 @@ export const interchange: TarkovCommand = {
       })
       const [page] = await browser.pages()
 
-      await page.goto('https://escapefromtarkov.gamepedia.com/Interchange')
+      await page.goto('https://escapefromtarkov.gamepedia.com/The_Lab')
 
       const raidDuration = await page.evaluate(() =>
         Array.prototype.slice
@@ -29,7 +29,7 @@ export const interchange: TarkovCommand = {
         Array.prototype.slice
           .call(
             document.querySelectorAll(
-              '#va-infobox0-content > td > table:nth-child(7) > tbody > tr:nth-child(4) > td.va-infobox-content'
+              '#va-infobox0-content > td > table:nth-child(5) > tbody > tr:nth-child(4) > td.va-infobox-content'
             )
           )
           .map((a) => a.innerText)
@@ -39,7 +39,7 @@ export const interchange: TarkovCommand = {
         Array.prototype.slice
           .call(
             document.querySelectorAll(
-              '#va-infobox0-content > td > table:nth-child(7) > tbody > tr:nth-child(6) > td.va-infobox-content'
+              '#va-infobox0-content > td > table:nth-child(5) > tbody > tr:nth-child(6) > td.va-infobox-content'
             )
           )
           .map((a) => a.innerText)
@@ -47,8 +47,8 @@ export const interchange: TarkovCommand = {
       )
 
       const locationInfo = new MessageEmbed()
-        .setTitle('Interchange')
-        .setImage('https://tarkov-tools.com/maps/interchange.jpg')
+        .setTitle('The Lab')
+        .setImage('https://tarkov-tools.com/maps/labs.jpg')
         .addField('Raid Duration', `${raidDuration}`, true)
         .addField('Players', `${playerNumbers}`, true)
         .addField('Enemies', `${enemies}`, true)

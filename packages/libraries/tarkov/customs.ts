@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer-core'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from '../../types/tarkov-commands'
+import { TarkovCommand } from '@gaming-tools/types/tarkov-commands'
 
-export const shoreline: TarkovCommand = {
+export const customs: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({
@@ -12,7 +12,7 @@ export const shoreline: TarkovCommand = {
       })
       const [page] = await browser.pages()
 
-      await page.goto('https://escapefromtarkov.gamepedia.com/Shoreline')
+      await page.goto('https://escapefromtarkov.gamepedia.com/Customs')
 
       const raidDuration = await page.evaluate(() =>
         Array.prototype.slice
@@ -47,8 +47,8 @@ export const shoreline: TarkovCommand = {
       )
 
       const locationInfo = new MessageEmbed()
-        .setTitle('Shoreline')
-        .setImage('https://tarkov-tools.com/maps/shoreline.jpg')
+        .setTitle('Customs')
+        .setImage('https://tarkov-tools.com/maps/customs.jpg')
         .addField('Raid Duration', `${raidDuration}`, true)
         .addField('Players', `${playerNumbers}`, true)
         .addField('Enemies', `${enemies}`, true)

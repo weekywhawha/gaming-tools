@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer-core'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from '../../types/tarkov-commands'
+import { TarkovCommand } from '@gaming-tools/types/tarkov-commands'
 
 export const woods: TarkovCommand = {
   async main(message) {

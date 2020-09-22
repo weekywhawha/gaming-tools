@@ -1,4 +1,4 @@
-import { tarkovCommands } from '../../libs/tarkov'
+import { tarkovCommands } from '@gaming-tools/libraries/tarkov'
 import { Command } from '../../types/command'
 
 export const tarkov: Command = {

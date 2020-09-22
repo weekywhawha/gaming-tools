@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer-core'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from '../../types/tarkov-commands'
+import { TarkovCommand } from '@gaming-tools/types/tarkov-commands'
 
-export const barter: TarkovCommand = {
+export const market: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({
@@ -12,7 +12,7 @@ export const barter: TarkovCommand = {
       })
       const [page] = await browser.pages()
 
-      await page.goto('https://tarkov-market.com/tag/barter')
+      await page.goto('https://tarkov-market.com/')
       await page.waitForSelector('th[class="price pointer"]')
       await page.click('th[class="price pointer"]')
       await page.waitForSelector('div[class="nuxt-progress"]', {
@@ -27,7 +27,7 @@ export const barter: TarkovCommand = {
       )
 
       const lootInfo = new MessageEmbed()
-        .setTitle('**Barter Prices 🤝**')
+        .setTitle('**Flea Market Prices 📈**')
         .addField(
           '\u200b\nItems\n\u200b',
           items.map((str) => (str as string).substring(0, 40)),

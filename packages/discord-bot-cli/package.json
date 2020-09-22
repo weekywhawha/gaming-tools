@@ -8,12 +8,14 @@
     "discord-bot-cli": "./bin/run"
   },
   "dependencies": {
+    "@gaming-tools/libraries": "0.0.1",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.0",
     "tslib": "^1.13.0"
   },
   "devDependencies": {
+    "@gaming-tools/types": "0.0.1",
     "@oclif/dev-cli": "^1.22.2",
     "@types/node": "^10.17.35",
     "globby": "^10.0.2",

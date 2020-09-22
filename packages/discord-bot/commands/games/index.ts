@@ -1,13 +1,13 @@
-import { dual } from './dual'
+//import { dual } from './dual'
 import { tarkov } from './tarkov'
 import { twitch } from './twitch'
 
-export * from './dual'
+//export * from './dual'
 export * from './tarkov'
 export * from './twitch'
 
 export const gamesCommands = {
-  dual,
+  //dual,
   tarkov,
   twitch,
 }

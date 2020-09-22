@@ -30,7 +30,7 @@ USAGE
 <!-- commands -->
 * [`discord-bot-cli hello [FILE]`](#discord-bot-cli-hello-file)
 * [`discord-bot-cli help [COMMAND]`](#discord-bot-cli-help-command)
-* [`discord-bot-cli ping [FILE]`](#discord-bot-cli-ping-file)
+* [`discord-bot-cli roll [FILE]`](#discord-bot-cli-roll-file)
 
 ## `discord-bot-cli hello [FILE]`
 
@@ -69,13 +69,13 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src\commands\help.ts)_
 
-## `discord-bot-cli ping [FILE]`
+## `discord-bot-cli roll [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ discord-bot-cli ping [FILE]
+  $ discord-bot-cli roll [FILE]
 
 OPTIONS
   -f, --force
@@ -83,5 +83,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src\commands\ping.ts](https://github.com/weekywhawha/discord-bot-cli/blob/v0.0.0/src\commands\ping.ts)_
+_See code: [src\commands\roll.ts](https://github.com/weekywhawha/discord-bot-cli/blob/v0.0.0/src\commands\roll.ts)_
 <!-- commandsstop -->

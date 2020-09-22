@@ -11,7 +11,7 @@ export * from './search'
 export * from './shoreline'
 export * from './woods'
 
-import { TarkovCommands } from '../../types/tarkov-commands'
+import { TarkovCommands } from '@gaming-tools/types/tarkov-commands'
 
 import { ammo } from './ammo'
 import { barter } from './barter'

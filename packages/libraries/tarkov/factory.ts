@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer-core'
 import { MessageEmbed } from 'discord.js'
-import { TarkovCommand } from '../../types/tarkov-commands'
+import { TarkovCommand } from '@gaming-tools/types/tarkov-commands'
 
-export const customs: TarkovCommand = {
+export const factory: TarkovCommand = {
   async main(message) {
     try {
       const browser = await puppeteer.launch({
@@ -12,7 +12,7 @@ export const customs: TarkovCommand = {
       })
       const [page] = await browser.pages()
 
-      await page.goto('https://escapefromtarkov.gamepedia.com/Customs')
+      await page.goto('https://escapefromtarkov.gamepedia.com/Factory')
 
       const raidDuration = await page.evaluate(() =>
         Array.prototype.slice
@@ -47,8 +47,8 @@ export const customs: TarkovCommand = {
       )
 
       const locationInfo = new MessageEmbed()
-        .setTitle('Customs')
-        .setImage('https://tarkov-tools.com/maps/customs.jpg')
+        .setTitle('Factory')
+        .setImage('https://tarkov-tools.com/maps/factory.jpg')
         .addField('Raid Duration', `${raidDuration}`, true)
         .addField('Players', `${playerNumbers}`, true)
         .addField('Enemies', `${enemies}`, true)
