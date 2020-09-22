@@ -1,11 +1,11 @@
 {
-  "name": "@gaming-tools/discord-bot-cli",
+  "name": "@gaming-tools/cli",
   "description": "A CLI for discord-bot",
   "version": "0.0.0",
   "author": "Marc David @weekywhawha",
   "private": true,
   "bin": {
-    "discord-bot-cli": "./bin/run"
+    "cli": "./bin/run"
   },
   "dependencies": {
     "@gaming-tools/libraries": "0.0.1",
@@ -43,7 +43,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "weekywhawha/discord-bot-cli",
+  "repository": "weekywhawha/gaming-tools",
   "scripts": {
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
