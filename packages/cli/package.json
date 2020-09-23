@@ -1,6 +1,5 @@
 {
   "name": "@gaming-tools/cli",
-  "description": "A CLI for discord-bot",
   "version": "0.0.0",
   "author": "Marc David @weekywhawha",
   "private": true,
@@ -18,6 +17,7 @@
     "@gaming-tools/types": "0.0.1",
     "@oclif/dev-cli": "^1.22.2",
     "@types/node": "^10.17.35",
+    "dotenv": "^8.2.0",
     "globby": "^10.0.2",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
@@ -38,7 +38,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "discord-bot-cli",
+    "bin": "cli",
     "plugins": [
       "@oclif/plugin-help"
     ]
