@@ -1,5 +1,6 @@
 import { Command, flags } from '@oclif/command'
-import { dualInfo } from '@gaming-tools/libraries/dual'
+import { getDualInfo } from '@gaming-tools/libraries/dual'
+import { cli } from 'cli-ux'
 
 export default class Dual extends Command {
   static description = 'describe the command here'
@@ -13,9 +14,25 @@ export default class Dual extends Command {
   async run() {
     const { args } = this.parse(Dual)
 
+    const oreInfo = []
+
     try {
-      const dualOres = await dualInfo(args.command)
-      console.log(dualOres)
+      const dualOres = await getDualInfo(args.command)
+
+      for (const [i, planet] of dualOres.planets.entries()) {
+        oreInfo.push({
+          planet,
+          depth: dualOres.oreValues[i],
+        })
+      }
+
+      cli.table(oreInfo, {
+        planet: {
+          minWidth: 12,
+        },
+        depth: {
+        },
+      })
     } catch (error) {
       return console.warn(error)
     }
