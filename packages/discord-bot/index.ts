@@ -29,7 +29,7 @@ const init = async function () {
     }
 
     if (command.args && !args.length) {
-      return message.reply(`You didn't provide any arguments, ${message.author}!`)
+      return message.reply(`you didn't provide any arguments, ${message.author}!`)
     }
 
     if (!cooldowns.has(command.name)) {

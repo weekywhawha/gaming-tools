@@ -1,4 +1,4 @@
-import { dualInfo } from '@gaming-tools/libraries/dual'
+import { getDualInfo } from '@gaming-tools/libraries/dual'
 import { MessageEmbed } from 'discord.js'
 import { Command } from '../../types/command'
 
@@ -8,7 +8,7 @@ export const dual: Command = {
   usage: '[argument]',
   async execute(message, args) {
     try {
-      const dualOres = await dualInfo(args[0])
+      const dualOres = await getDualInfo(args[0])
 
       const displayInfo = new MessageEmbed()
         .setTitle(`${dualOres.oreName}`)
