@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command'
-import { rollDice } from '@gaming-tools/libraries/roll'
+import { getRollDice } from '@gaming-tools/libraries/roll'
 
 export default class Roll extends Command {
   static description = 'describe the command here'
@@ -14,10 +14,10 @@ export default class Roll extends Command {
     const { args } = this.parse(Roll)
 
     try {
-      const result = await rollDice(args.command, args.comment)
-      return console.log(result)
+      const result = await getRollDice(args.command, args.comment)
+      return this.log(result.replace(/\*/g, ''))
     } catch (error) {
-      return console.warn(error)
+      return this.warn(error)
     }
   }
 }

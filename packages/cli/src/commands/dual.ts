@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command'
-import { getDualInfo } from '@gaming-tools/libraries/dual'
 import { cli } from 'cli-ux'
+import { getDualInfo } from '@gaming-tools/libraries/dual'
 
 export default class Dual extends Command {
   static description = 'describe the command here'
@@ -30,11 +30,10 @@ export default class Dual extends Command {
         planet: {
           minWidth: 12,
         },
-        depth: {
-        },
+        depth: {},
       })
     } catch (error) {
-      return console.warn(error)
+      return this.warn(error)
     }
   }
 }
