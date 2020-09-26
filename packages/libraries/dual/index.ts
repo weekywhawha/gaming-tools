@@ -3,7 +3,7 @@ import { google } from 'googleapis'
 const APIKey = process.env.GOOGLE_API_KEY
 const sheets = google.sheets({ version: 'v4', auth: APIKey })
 
-export const dualInfo = async function (command: string): Promise<typeof oreInfo> {
+export const getDualInfo = async function (command: string): Promise<typeof oreData> {
   const searchInput = command.toLowerCase()
 
   if (!searchInput || searchInput.length < 4) {
@@ -28,15 +28,15 @@ export const dualInfo = async function (command: string): Promise<typeof oreInfo
     return Promise.reject('your search did not match any item.')
   }
 
-  const oreName: string[] = findElement[0]
+  const oreName: string = findElement[0]
   const oreValues: number[] = findElement.slice(7)
   const planets: string[] = data.values[0].slice(7)
 
-  const oreInfo = {
-    oreName: oreName,
-    oreValues: oreValues,
-    planets: planets,
+  const oreData = {
+    oreName,
+    oreValues,
+    planets,
   }
 
-  return oreInfo
+  return oreData
 }

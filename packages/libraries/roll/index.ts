@@ -6,7 +6,7 @@ const dice = new DiceRoller()
 // roll 2d5+10
 // roll 2d5 / comment
 
-export const rollDice = function (command: string, comment?: string): any | Promise<string> {
+export const getRollDice = function (command: string, comment?: string): any | Promise<string> {
   // TODO test regex
   // if (!regex.test(command)) {
   //   return Promise.reject('Please specify a dice type e.g., "1d6", "2d5+1d7", etc.')
