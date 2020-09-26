@@ -15,30 +15,46 @@ A CLI for discord-bot
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @gaming-tools/discord-bot-cli
-$ discord-bot-cli COMMAND
+$ npm install -g @gaming-tools/cli
+$ cli COMMAND
 running command...
-$ discord-bot-cli (-v|--version|version)
-@gaming-tools/discord-bot-cli/0.0.0 win32-x64 node-v14.8.0
-$ discord-bot-cli --help [COMMAND]
+$ cli (-v|--version|version)
+@gaming-tools/cli/0.0.0 win32-x64 node-v14.8.0
+$ cli --help [COMMAND]
 USAGE
-  $ discord-bot-cli COMMAND
+  $ cli COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`discord-bot-cli hello [FILE]`](#discord-bot-cli-hello-file)
-* [`discord-bot-cli help [COMMAND]`](#discord-bot-cli-help-command)
-* [`discord-bot-cli roll [FILE]`](#discord-bot-cli-roll-file)
+* [`cli dual COMMAND`](#cli-dual-command)
+* [`cli hello [FILE]`](#cli-hello-file)
+* [`cli help [COMMAND]`](#cli-help-command)
+* [`cli roll COMMAND [COMMENT]`](#cli-roll-command-comment)
+* [`cli twitch [FILE]`](#cli-twitch-file)
 
-## `discord-bot-cli hello [FILE]`
+## `cli dual COMMAND`
 
 describe the command here
 
 ```
 USAGE
-  $ discord-bot-cli hello [FILE]
+  $ cli dual COMMAND
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src\commands\dual.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\dual.ts)_
+
+## `cli hello [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cli hello [FILE]
 
 OPTIONS
   -f, --force
@@ -50,15 +66,15 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src\commands\hello.ts](https://github.com/weekywhawha/discord-bot-cli/blob/v0.0.0/src\commands\hello.ts)_
+_See code: [src\commands\hello.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\hello.ts)_
 
-## `discord-bot-cli help [COMMAND]`
+## `cli help [COMMAND]`
 
-display help for discord-bot-cli
+display help for cli
 
 ```
 USAGE
-  $ discord-bot-cli help [COMMAND]
+  $ cli help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -69,13 +85,27 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src\commands\help.ts)_
 
-## `discord-bot-cli roll [FILE]`
+## `cli roll COMMAND [COMMENT]`
 
 describe the command here
 
 ```
 USAGE
-  $ discord-bot-cli roll [FILE]
+  $ cli roll COMMAND [COMMENT]
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src\commands\roll.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\roll.ts)_
+
+## `cli twitch [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cli twitch [FILE]
 
 OPTIONS
   -f, --force
@@ -83,5 +113,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src\commands\roll.ts](https://github.com/weekywhawha/discord-bot-cli/blob/v0.0.0/src\commands\roll.ts)_
+_See code: [src\commands\twitch.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\twitch.ts)_
 <!-- commandsstop -->
