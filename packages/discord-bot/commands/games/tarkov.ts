@@ -9,20 +9,51 @@ export const tarkov: Command = {
   usage: '[argument] [argument(search command)]',
   async execute(message, args) {
     try {
-      const result = await runTarkovCommand(args[0], args[0])
 
-      const locationInfo = new MessageEmbed()
-        .setTitle(`${result.map}`)
-        .setImage(`${result.url}`)
-        .addField('Raid Duration', `${result.raidDuration}`, true)
-        .addField('Players', `${result.playerNumbers}`, true)
-        .addField('Enemies', `${result.enemies}`, true)
-        .setFooter(
-          'source: escapefromtarkov.gamepedia.com',
-          'https://mercury-media.cursecdn.com/avatars/0/676/635077524106421849.png'
-        )
+      const search = (args as string[]).slice(1).join(' ')
 
-      return message.channel.send(locationInfo)
+      const result = await runTarkovCommand(args[0], search)
+
+      if (result.category === 'map') {
+        const mapInfo = new MessageEmbed()
+          .setTitle(`${result.map}`)
+          .setImage(`${result.url}`)
+          .addField('Raid Duration', `${result.raidDuration}`, true)
+          .addField('Players', `${result.playerNumbers}`, true)
+          .addField('Enemies', `${result.enemies}`, true)
+          .setFooter(
+            'source: escapefromtarkov.gamepedia.com',
+            'https://mercury-media.cursecdn.com/avatars/0/676/635077524106421849.png'
+          )
+
+        return message.channel.send(mapInfo)
+      }
+
+      if (result.category === 'market') {
+        const itemInfo = new MessageEmbed()
+
+          .setTitle(result.title)
+          .addField(
+            '\u200b\nItems\n\u200b',
+            result.items.map((str: string) => str.substring(0, 40)),
+            true
+          )
+          .addField('Avg price (24h) \nPer slot\n\u200b', result.avgPrice, true)
+          .addField('\u200b', '\u200b', false)
+          .setFooter('source: tarkov-market.com ', 'https://tarkov-market.com/favicon-32x32.png')
+
+          return message.channel.send(itemInfo)
+      }
+
+      if(result.category === 'ammo') {
+        const ammoInfo = new MessageEmbed()
+        .setDescription(`${result.newDate}`)
+        .attachFiles(result.image)
+        .setImage('attachment://file.jpg')
+        .setFooter('source: tarkov-tools.com', 'https://tarkov-tools.com/favicon-32x32.png')
+
+        return message.channel.send(ammoInfo)
+      }
     } catch (error) {
       return message.reply(error)
     }
