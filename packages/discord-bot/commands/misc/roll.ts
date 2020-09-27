@@ -1,5 +1,5 @@
 import { Command } from '../../types/command'
-import { rollDice } from '@gaming-tools/libraries/roll'
+import { getRollDice } from '@gaming-tools/libraries/roll'
 
 export const roll: Command = {
   name: 'roll',
@@ -8,7 +8,7 @@ export const roll: Command = {
   usage: '[dice-notation] [comment(optional)]',
   async execute(message, args) {
     try {
-      const result = await rollDice(args[0], args[1])
+      const result = await getRollDice(args[0], args[1])
       return message.channel.send(`${message.author} ${result}`).catch(() => {
         message.reply('something went wrong! The resulting message is invalid or too long')
       })
