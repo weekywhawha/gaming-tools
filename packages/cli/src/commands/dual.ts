@@ -17,12 +17,12 @@ export default class Dual extends Command {
     const oreInfo = []
 
     try {
-      const dualOres = await getDualInfo(args.command)
+      const dualInfo = await getDualInfo(args.command)
 
-      for (const [i, planet] of dualOres.planets.entries()) {
+      for (const [i, planet] of dualInfo.planets.entries()) {
         oreInfo.push({
           planet,
-          depth: dualOres.oreValues[i],
+          depth: dualInfo.oreValues[i],
         })
       }
 
