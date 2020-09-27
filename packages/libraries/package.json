@@ -13,13 +13,12 @@
   "dependencies": {
     "axios": "^0.20.0",
     "googleapis": "^39.2.0",
-    "puppeteer-core": "^5.3.0",
+    "puppeteer": "^5.3.0",
     "rpg-dice-roller": "^4.5.1",
     "weather-js": "^2.0.0"
   },
   "devDependencies": {
     "@gaming-tools/types": "0.0.1",
-    "@types/puppeteer-core": "^2.0.0",
-    "puppeteer": "^5.3.0"
+    "@types/puppeteer": "^2.0.0"
   }
 }
