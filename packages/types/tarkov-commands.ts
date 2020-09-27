@@ -1,9 +1,9 @@
-import { Message } from "discord.js";
+//import { Message } from 'discord.js'
 
 export interface TarkovCommand {
-    main(message: Message, args: string | string[]): any | Promise<any>
+  main(search?: string): any | Promise<any>
 }
 
 export interface TarkovCommands {
-    [index: string]: TarkovCommand
+  [index: string]: TarkovCommand
 }

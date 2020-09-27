@@ -10,6 +10,7 @@ export * from './reserve'
 export * from './search'
 export * from './shoreline'
 export * from './woods'
+export * from './tarkov'
 
 import { TarkovCommands } from '@gaming-tools/types/tarkov-commands'
 
