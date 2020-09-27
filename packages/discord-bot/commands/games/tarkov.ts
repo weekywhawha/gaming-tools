@@ -9,7 +9,6 @@ export const tarkov: Command = {
   usage: '[argument] [argument(search command)]',
   async execute(message, args) {
     try {
-
       const search = (args as string[]).slice(1).join(' ')
 
       const result = await runTarkovCommand(args[0], search)
@@ -42,30 +41,20 @@ export const tarkov: Command = {
           .addField('\u200b', '\u200b', false)
           .setFooter('source: tarkov-market.com ', 'https://tarkov-market.com/favicon-32x32.png')
 
-          return message.channel.send(itemInfo)
+        return message.channel.send(itemInfo)
       }
 
-      if(result.category === 'ammo') {
+      if (result.category === 'ammo') {
         const ammoInfo = new MessageEmbed()
-        .setDescription(`${result.newDate}`)
-        .attachFiles(result.image)
-        .setImage('attachment://file.jpg')
-        .setFooter('source: tarkov-tools.com', 'https://tarkov-tools.com/favicon-32x32.png')
+          .setDescription(`${result.newDate}`)
+          .attachFiles(result.image)
+          .setImage('attachment://file.jpg')
+          .setFooter('source: tarkov-tools.com', 'https://tarkov-tools.com/favicon-32x32.png')
 
         return message.channel.send(ammoInfo)
       }
     } catch (error) {
       return message.reply(error)
     }
-
-    // if (!args[0]) {
-    //   return message.reply('please specify an argument.')
-    // }
-
-    // if (!tarkovCommands.hasOwnProperty(args[0])) {
-    //   return message.reply('command not found.')
-    // }
-
-    // return tarkovCommands[args[0]].main(message, args)
   },
 }
