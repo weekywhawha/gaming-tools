@@ -50,8 +50,6 @@ export const ammo: TarkovCommand = {
         image: screenshot,
       }
 
-      console.log(ammoData)
-
       return ammoData
     } catch (error) {
       console.error(error)
