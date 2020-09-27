@@ -32,7 +32,8 @@ USAGE
 * [`cli hello [FILE]`](#cli-hello-file)
 * [`cli help [COMMAND]`](#cli-help-command)
 * [`cli roll COMMAND [COMMENT]`](#cli-roll-command-comment)
-* [`cli twitch [FILE]`](#cli-twitch-file)
+* [`cli twitch COMMAND`](#cli-twitch-command)
+* [`cli weather [FILE]`](#cli-weather-file)
 
 ## `cli dual COMMAND`
 
@@ -99,13 +100,27 @@ OPTIONS
 
 _See code: [src\commands\roll.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\roll.ts)_
 
-## `cli twitch [FILE]`
+## `cli twitch COMMAND`
 
 describe the command here
 
 ```
 USAGE
-  $ cli twitch [FILE]
+  $ cli twitch COMMAND
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src\commands\twitch.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\twitch.ts)_
+
+## `cli weather [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cli weather [FILE]
 
 OPTIONS
   -f, --force
@@ -113,5 +128,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src\commands\twitch.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\twitch.ts)_
+_See code: [src\commands\weather.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\weather.ts)_
 <!-- commandsstop -->

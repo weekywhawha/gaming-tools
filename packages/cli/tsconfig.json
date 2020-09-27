@@ -6,9 +6,8 @@
     "module": "commonjs",
     "outDir": "./lib",
     "rootDir": "./src",
+    "esModuleInterop": true,
     "target": "es2017"
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }

@@ -2,6 +2,7 @@
   "name": "@gaming-tools/cli",
   "version": "0.0.0",
   "author": "Marc David @weekywhawha",
+  "description": "CLI",
   "private": true,
   "bin": {
     "cli": "./bin/run"

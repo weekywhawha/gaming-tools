@@ -1,7 +1,9 @@
 {
   "name": "@gaming-tools/discord-bot",
   "version": "0.0.1",
-  "description": "",
+  "author": "Marc David @weekywhawha",
+  "description": "Discord bot",
+  "private": true,
   "main": "index.js",
   "engines": {
     "node": "14.x"
@@ -14,7 +16,6 @@
     "dev": "ts-node-dev -r dotenv/config index.ts dotenv_config_path=.env.dev"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@gaming-tools/libraries": "0.0.1",

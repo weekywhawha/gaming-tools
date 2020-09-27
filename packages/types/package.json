@@ -1,7 +1,8 @@
 {
   "name": "@gaming-tools/types",
   "version": "0.0.1",
-  "description": "",
+  "description": "External types",
+  "private": true,
   "main": "index.js",
   "engines": {
     "node": "14.x"

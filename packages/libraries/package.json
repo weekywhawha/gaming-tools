@@ -1,7 +1,8 @@
 {
   "name": "@gaming-tools/libraries",
   "version": "0.0.1",
-  "description": "",
+  "description": "External libraries",
+  "private": true,
   "main": "index.js",
   "engines": {
     "node": "14.x"
