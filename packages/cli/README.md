@@ -29,11 +29,11 @@ USAGE
 # Commands
 <!-- commands -->
 * [`cli dual COMMAND`](#cli-dual-command)
-* [`cli hello [FILE]`](#cli-hello-file)
 * [`cli help [COMMAND]`](#cli-help-command)
 * [`cli roll COMMAND [COMMENT]`](#cli-roll-command-comment)
+* [`cli tarkov [FILE]`](#cli-tarkov-file)
 * [`cli twitch COMMAND`](#cli-twitch-command)
-* [`cli weather [FILE]`](#cli-weather-file)
+* [`cli weather COMMAND`](#cli-weather-command)
 
 ## `cli dual COMMAND`
 
@@ -48,26 +48,6 @@ OPTIONS
 ```
 
 _See code: [src\commands\dual.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\dual.ts)_
-
-## `cli hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ cli hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ discord-bot-cli hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src\commands\hello.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\hello.ts)_
 
 ## `cli help [COMMAND]`
 
@@ -100,6 +80,22 @@ OPTIONS
 
 _See code: [src\commands\roll.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\roll.ts)_
 
+## `cli tarkov [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cli tarkov [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src\commands\tarkov.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\tarkov.ts)_
+
 ## `cli twitch COMMAND`
 
 describe the command here
@@ -114,18 +110,16 @@ OPTIONS
 
 _See code: [src\commands\twitch.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\twitch.ts)_
 
-## `cli weather [FILE]`
+## `cli weather COMMAND`
 
 describe the command here
 
 ```
 USAGE
-  $ cli weather [FILE]
+  $ cli weather COMMAND
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
 ```
 
 _See code: [src\commands\weather.ts](https://github.com/weekywhawha/gaming-tools/blob/v0.0.0/src\commands\weather.ts)_
