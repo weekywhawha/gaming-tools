@@ -6,5 +6,5 @@
   },
   
   "exclude": ["node_modules", "dist"],
-  "references": [{ "path": "../types" }]
+  "references": [{ "path": "../types"}, {"path": "../libraries" }]
 }
