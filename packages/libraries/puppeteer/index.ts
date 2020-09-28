@@ -2,7 +2,7 @@ import { Browser, launch } from 'puppeteer'
 
 let browser: Browser
 
-export async function newBrowser() {
+export async function getBrowser() {
   if (typeof browser !== 'undefined') {
     return browser
   }
@@ -16,7 +16,7 @@ export async function newBrowser() {
 
 export async function newPage() {
 
-    const b = await newBrowser()
+    const b = await getBrowser()
 
     return b.newPage()
   }

@@ -5,7 +5,6 @@ export const search: TarkovCommand = {
   async main(search) {
     try {
       const searchInput = search
-      console.log(searchInput)
 
       if (!searchInput || searchInput.length < 3) {
         return Promise.reject(`invalid search parameter`)
@@ -44,7 +43,6 @@ export const search: TarkovCommand = {
       const searchData = {
         category: 'market',
         title: `**Search Results for** *"${searchInput}"* 📦`,
-        searchInput,
         items,
         avgPrice,
       }
