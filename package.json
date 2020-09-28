@@ -3,7 +3,7 @@
   "private": true,
   "author": "Marc David @weekywhawha",
   "scripts": {
-    "build:discord-bot": "cd packages/discord-bot && npm run build",
+    "build:discord-bot": "tsc -b ./packages/discord-bot",
     "fix:dependencies": "rm -rf ./node_modules/ ./package-lock.json ./packages/*/package-lock.json && npm i && lerna clean --yes && lerna bootstrap"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { runTarkovCommand } from '@gaming-tools/libraries/tarkov'
+import { runTarkovCommand } from '@gaming-tools/libraries'
 import { MessageEmbed } from 'discord.js'
 import { Command } from '../../types/command'
 

@@ -1,4 +1,4 @@
-import { getDualInfo } from '@gaming-tools/libraries/dual'
+import { getDualInfo } from '@gaming-tools/libraries'
 import { MessageEmbed } from 'discord.js'
 import { Command } from '../../types/command'
 

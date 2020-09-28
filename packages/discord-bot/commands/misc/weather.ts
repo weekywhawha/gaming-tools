@@ -1,4 +1,4 @@
-import { getWeatherInfo } from '@gaming-tools/libraries/weather'
+import { getWeatherInfo } from '@gaming-tools/libraries'
 import { MessageEmbed } from 'discord.js'
 import { Command } from '../../types/command'
 

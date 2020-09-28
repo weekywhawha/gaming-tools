@@ -1,5 +1,5 @@
 import { Command } from '../../types/command'
-import { getRollDice } from '@gaming-tools/libraries/roll'
+import { getRollDice } from '@gaming-tools/libraries'
 
 export const roll: Command = {
   name: 'roll',

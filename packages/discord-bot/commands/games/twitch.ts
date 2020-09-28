@@ -1,4 +1,4 @@
-import { getTwitchInfo } from '@gaming-tools/libraries/twitch'
+import { getTwitchInfo } from '@gaming-tools/libraries'
 import { Command } from '../../types/command'
 import { MessageEmbed } from 'discord.js'
 

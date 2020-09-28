@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "External libraries",
   "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
   "engines": {
     "node": "14.x"
   },
