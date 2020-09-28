@@ -1,16 +1,11 @@
 import { DiceRoller } from 'rpg-dice-roller'
 const dice = new DiceRoller()
-
-// roll 2d5
-// roll 2d5+3d6
-// roll 2d5+10
-// roll 2d5 / comment
+const regex = RegExp(/^\d/)
 
 export const getRollDice = function (command: string, comment?: string): any | Promise<string> {
-  // TODO test regex
-  // if (!regex.test(command)) {
-  //   return Promise.reject('Please specify a dice type e.g., "1d6", "2d5+1d7", etc.')
-  // }
+  if (!regex.test(command)) {
+    return Promise.reject('Please specify a dice type e.g., "1d6", "2d5+1d7", etc.')
+  }
 
   try {
     dice.roll(command)
