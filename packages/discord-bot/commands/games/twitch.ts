@@ -4,7 +4,7 @@ import { MessageEmbed } from 'discord.js'
 
 export const twitch: Command = {
   name: 'twitch',
-  description: 'Get a link for the channel requested.',
+  description: 'Get stream information for the channel requested.',
   usage: '[argument]',
   async execute(message, args) {
     try {

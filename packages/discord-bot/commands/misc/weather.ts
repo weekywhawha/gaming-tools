@@ -4,7 +4,7 @@ import { Command } from '../../types/command'
 
 export const weather: Command = {
   name: 'weather',
-  description: 'Checks weather forecast for a specific location.',
+  description: 'Weather forecast for a requested location.',
   usage: '[location]',
   async execute(message, args) {
     try {
