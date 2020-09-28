@@ -3,7 +3,7 @@ import { cli } from 'cli-ux'
 import { getDualInfo } from '@gaming-tools/libraries/dual'
 
 export default class Dual extends Command {
-  static description = 'describe the command here'
+  static description = 'Information about Dual Universe ores, please input at least 4 characters for the search.'
 
   static flags = {
     help: flags.help({ char: 'h' }),
@@ -25,13 +25,14 @@ export default class Dual extends Command {
           depth: dualInfo.oreValues[i],
         })
       }
-
+      this.log('-----------------------')
       cli.table(oreInfo, {
         planet: {
           minWidth: 12,
         },
         depth: {},
       })
+      this.log('-----------------------')
     } catch (error) {
       return this.warn(error)
     }
