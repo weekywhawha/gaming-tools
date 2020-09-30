@@ -9,6 +9,11 @@ export class Twitch {
     //   next(ApiError.badRequest('id is required'))
     //   return
     // }
-    res.send(await getTwitchInfo(id))
+    try{
+      res.send(await getTwitchInfo(id))
+    }
+    catch(error){
+      console.log(error)
+    }
   }
 }
