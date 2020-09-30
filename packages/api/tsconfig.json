@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.settings.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "."
+  },
+
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "../types" }, { "path": "../libraries" }]
+}
