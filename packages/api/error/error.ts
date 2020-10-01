@@ -6,11 +6,11 @@ export class ApiError {
     this.message = message
   }
 
-  static badRequest(msg: any) {
+  static badRequest(msg: string) {
     return new ApiError(400, msg)
   }
 
-  static internal(msg: any) {
+  static internal(msg: string) {
     return new ApiError(500, msg)
   }
 }
