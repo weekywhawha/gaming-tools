@@ -1,6 +1,6 @@
 import { DiceRoller } from 'rpg-dice-roller'
 const dice = new DiceRoller()
-const regex = RegExp(/^\S*\S*\S*$/)
+const regex = RegExp(/^(\d[d]\d)\S*\S*\S*$/)
 
 export const getRollDice = function (command: string, comment?: string): any | Promise<string> {
   if (!regex.test(command)) {
@@ -17,10 +17,10 @@ export const getRollDice = function (command: string, comment?: string): any | P
     }
 
     if (comment) {
-      return `rolled**${result.toString().substring(result.toString().indexOf(':') + 1)}** | *${comment}*`
+      return `rolled${result.toString().substring(result.toString().indexOf(':') + 1)} | ${comment}`
     }
 
-    return `rolled**${result.toString().substring(result.toString().indexOf(':') + 1)}**`
+    return `rolled${result.toString().substring(result.toString().indexOf(':') + 1)}`
   } catch (err) {
     Promise.reject('wrong dice notation please use a valid notation.')
   }
