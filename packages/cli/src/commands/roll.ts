@@ -17,7 +17,7 @@ export default class Roll extends Command {
     try {
       const result = await getRollDice(args.command, flags.comment)
       this.log('-----------------------')
-      this.log(result.replace(/\*/g, ''))
+      this.log(result)
       this.log('-----------------------')
     } catch (error) {
       return this.warn(error)
