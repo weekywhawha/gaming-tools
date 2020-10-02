@@ -4,14 +4,14 @@ import { Info } from '../types/info'
 
 export class Roll {
   static info: Info = async (req, res, next) => {
-    const { roll, comment } = req.body
+    const { roll } = req.body
 
     if(!roll){
       return next(ApiError.badRequest('invalid parameter'))
     }
 
     try {
-      res.send(await getRollDice(roll, comment))
+      res.send(await getRollDice(roll))
     } catch (error) {
       next(ApiError.badRequest(error))
     }
