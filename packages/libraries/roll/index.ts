@@ -1,6 +1,6 @@
 import { DiceRoller } from 'rpg-dice-roller'
 const dice = new DiceRoller()
-const regex = RegExp(/^\d/)
+const regex = RegExp(/^\S*\S*\S*$/)
 
 export const getRollDice = function (command: string, comment?: string): any | Promise<string> {
   if (!regex.test(command)) {
