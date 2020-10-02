@@ -1,4 +1,4 @@
-import { ApiError } from './error'
+import { ApiError } from './api-error'
 
 export function errorHandler(err: any, req:any, res:any, next:any) {
   //change to async log for prod
