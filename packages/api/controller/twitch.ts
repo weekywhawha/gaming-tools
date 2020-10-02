@@ -6,6 +6,10 @@ export class Twitch {
   static info: Info = async (req, res, next) => {
     const { id } = req.body
 
+    if (!id) {
+      return next(ApiError.badRequest('invalid parameter'))
+    }
+
     try {
       res.send(await getTwitchInfo(id))
     } catch (error) {

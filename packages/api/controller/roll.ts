@@ -6,9 +6,12 @@ export class Roll {
   static info: Info = async (req, res, next) => {
     const { roll, comment } = req.body
 
+    if(!roll){
+      return next(ApiError.badRequest('invalid parameter'))
+    }
+
     try {
-      const result = await getRollDice(roll, comment)
-      res.send(result.replace(/\*/g, ''))
+      res.send(await getRollDice(roll, comment))
     } catch (error) {
       next(ApiError.badRequest(error))
     }
