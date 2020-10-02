@@ -2,7 +2,7 @@ import { DiceRoller } from 'rpg-dice-roller'
 const dice = new DiceRoller()
 const regex = RegExp(/^(\d[d]\d)\S*\S*\S*$/)
 
-export const getRollDice = function (command: string, comment?: string): any | Promise<string> {
+export const getRollDice = async function (command: string, comment?: string): Promise<any> {
   if (!regex.test(command)) {
     return Promise.reject('Please specify a dice type e.g., "1d6", "2d5+1d7", etc.')
   }
