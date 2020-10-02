@@ -1,7 +1,8 @@
+import { Weather } from '../controller/weather'
 import express from 'express'
-//import { getTwitchInfo } from '@gaming-tools/libraries'
 import { Twitch } from '../controller/twitch'
 
 export const router = express()
 
-router.get('/twitch/:id', Twitch.info)
+router.post('/twitch/', Twitch.info)
+router.post('/weather', Weather.info)
