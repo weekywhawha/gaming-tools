@@ -3,8 +3,7 @@ import { getWeatherInfo } from '@gaming-tools/libraries'
 import { Info } from '../types/info'
 
 export class Weather {
-  static  info: Info =  async (req, res, next) => {
-    
+  static info: Info = async (req, res, next) => {
     const { location } = req.body
 
     try {
