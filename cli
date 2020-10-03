@@ -1,0 +1,2 @@
+#!/bin/sh
+cd packages/cli && ./bin/run $@
