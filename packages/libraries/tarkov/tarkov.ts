@@ -1,6 +1,6 @@
 import { tarkovCommands } from './index'
 
-export const runTarkovCommand = async function (command: string, search: string) {
+export const runTarkovCommand = async function (command: string, search?: string) {
   if (!command) {
     return Promise.reject('please specify an argument.')
   }
