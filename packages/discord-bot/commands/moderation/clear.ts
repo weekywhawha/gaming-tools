@@ -5,6 +5,9 @@ export const clear: Command = {
   description: 'Delete up to 99 messages.',
   usage: '[number]',
   execute(message) {
+    if (!message.member?.roles.cache.some((r) => r.name === 'Admin')) {
+      return message.reply('you do not have permission to use this command.')
+    }
     const user = message.mentions.users.first()
     const amount = parseInt(message.content.split(' ')[1])
       ? parseInt(message.content.split(' ')[1])
